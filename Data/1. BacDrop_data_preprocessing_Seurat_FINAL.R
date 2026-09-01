@@ -9,7 +9,7 @@ library(Seurat)
 ################# Loading data & creating Seurat object #########################
 
 # Define the data directory and subfolders for replicates
-data_dir <- "C:/Users/DG1/Desktop/DALLAB/Experimenting/Data/Antibiotic resistance/BacDrop/RawData"
+data_dir <- "path/to/RawData"
 rep1_dir <- file.path(data_dir, "Replicate1", "og_names")
 rep2_dir <- file.path(data_dir, "Replicate2")
 
@@ -85,13 +85,13 @@ data_combined
 table(data_combined@meta.data$project_id)
 
 #save combined seurat object for next time
-saveRDS(data_combined, "C:/Users/DG1/Desktop/DALLAB/Experimenting/Data/Antibiotic resistance/BacDrop/RawData/trial 2/mero_cip_gent_rep1_seurat_obj_250703_v0907.rds")
+saveRDS(data_combined, "path/to/seurat_obj.rds")
 
 
 ################# Visualize data ##########################
 
 # Reload the object
-data_combined <- readRDS("C:/Users/DG1/Desktop/DALLAB/Experimenting/Data/Antibiotic resistance/BacDrop/RawData/trial 2/mero_cip_gent_rep1_seurat_obj_250703_v0907.rds")
+data_combined <- readRDS("path/to/seurat_obj.rds")
 dim(data_combined)
 
 # Visualize metrics using Seurat
@@ -244,7 +244,7 @@ library(Seurat)
 
 
 #defining output path to save to 
-output_dir <- "C:/Users/DG1/Desktop/DALLAB/Experimenting/Data/Antibiotic resistance/BacDrop/Seurat/Output exp1"
+output_dir <- "path/to/output_dir"
 
 
 ###Extracting expression matrix########
@@ -254,9 +254,6 @@ norm_data <- GetAssayData(data, layer = "data")
 
 # Convert to dense matrix (required for csv)
 dense_norm <- as.matrix(GetAssayData(data, layer = "data"))
-
-# write to CSV 
-write.csv(dense_norm, file = "adata_X_lognorm_dense.csv")
 
 # Save log-normalized matrix as CSV
 write.csv(
