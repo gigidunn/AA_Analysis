@@ -4,9 +4,9 @@
 % Load the numeric gene expression matrix
 % Rows = cells (samples), Columns = genes
 % Load expression matrix (CSV with header and row labels)
-%geneExpression = readmatrix("C:\Users\DG1\Desktop\DALLAB\Experimenting\Data\Antibiotic resistance\BacDrop\ParTI data\3_treatments\1507\parti_expression_matrix.csv", 'NumHeaderLines', 1);
+%geneExpression = readmatrix("path/to/parti_expression_matrix.csv", 'NumHeaderLines', 1);
 % Load expression matrix as a table (includes barcodes and gene names)
-T = readtable("C:\Users\DG1\Desktop\DALLAB\Experimenting\ParTI\Input\Antibiotic resistance\1507\ParTI_expression_matrix_1507.csv");
+T = readtable("path/to/ParTI_expression_matrix.csv");
 
 % Get the size of the table
 [rows, cols] = size(T);
@@ -18,10 +18,10 @@ fprintf('The shape of the table is %d rows × %d columns.\n', rows, cols);
 geneExpression = table2array(T(:, 2:end));
 
 % Load gene names (as a list of strings)
-geneNames = importdata("C:\Users\DG1\Desktop\DALLAB\Experimenting\ParTI\Input\Antibiotic resistance\1507\ParTI_gene_names_1507.txt", ',');
+geneNames = importdata("path/to/ParTI_gene_names.txt", ',');
 
 % Load discrete labels 
-[discrAttrNames, discrAttr] = read_enriched_csv("C:\Users\DG1\Desktop\DALLAB\Experimenting\ParTI\Input\Antibiotic resistance\1507\ParTI_discrete_attributes_1507.csv", ',');
+[discrAttrNames, discrAttr] = read_enriched_csv("path/to/ParTI_discrete_attributes.csv", ',');
 
 % there are no continuous attributes in this simplified version
 contAttr = [];
